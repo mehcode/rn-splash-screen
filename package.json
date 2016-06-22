@@ -1,32 +1,31 @@
 {
-    "name": "@remobile/react-native-splashscreen",
-        "version": "1.0.3",
-        "description": "A splashscreen for react-native, hide when application loaded",
-        "main": "index.js",
-        "author": {
-            "name": "YunJiang.Fang",
-            "email": "42550564@qq.com"
-        },
-        "license": "MIT",
-        "keywords": [
-            "react-native",
-            "react-component",
-            "ios",
-            "android",
-            "splashscreen",
-            "splash",
-            "launchui",
-            "show",
-            "hide",
-            "remobile",
-            "mobile"
-        ],
-        "homepage": "https://github.com/remobile/react-native-splashscreen",
-        "bugs": {
-            "url": "https://github.com/remobile/react-native-splashscreen/issues"
-        },
-        "repository": {
-            "type": "git",
-            "url": "git://github.com/remobile/react-native-splashscreen.git"
-        }
+  "name": "rn-splash-screen",
+  "version": "1.0.0",
+  "description": "A JavaScript-controlled splash-screen designed to be run directly after the native splash-screen.",
+  "main": "index.js",
+  "author": {
+    "name": "Ryan Leckey",
+    "email": "leckey.ryan@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "react-native",
+    "react-component",
+    "ios",
+    "android",
+    "splashscreen",
+    "splash",
+    "launchui",
+    "show",
+    "hide",
+    "mobile"
+  ],
+  "homepage": "https://github.com/mehcode/rn-splash-screen",
+  "bugs": {
+    "url": "https://github.com/mehcode/rn-splash-screen/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mehcode/rn-splash-screen.git"
+  }
 }

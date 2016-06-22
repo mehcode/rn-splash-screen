@@ -93,7 +93,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
-				ORGANIZATIONNAME = remobile;
+				ORGANIZATIONNAME = mehcode;
 				TargetAttributes = {
 					3245CDEC1BFEE35C00EABF68 = {
 						CreatedOnToolsVersion = 6.4;

@@ -1,16 +1,20 @@
-# React Native SplashScreen (remobile)
-A splashscreen for react-native, hide when application loaded
+# React Native Splash Screen
+> A JavaScript-controlled splash-screen designed to be run directly after the native splash-screen.
 
-## Installation
+## Install
 ```sh
-npm install @remobile/react-native-splashscreen --save
+npm install --save rn-splash-screen
 ```
-### Installation (iOS)
+
+## Configure
+
+#### iOS
+
 * Drag RCTSplashScreen.xcodeproj to your project on Xcode.
 * Click on your main project file (the one that represents the .xcodeproj) select Build Phases and drag libRCTSplashScreen.a from the Products folder inside the RCTSplashScreen.xcodeproj.
 * Look for Header Search Paths and make sure it contains $(SRCROOT)/../../../react-native/React as recursive.
 
-* In your project, Look for Header Search Paths and make sure it contains $(SRCROOT)/../node_modules/@remobile/react-native-splashscreen/ios/RCTSplashScreen
+* In your project, Look for Header Search Paths and make sure it contains $(SRCROOT)/../node_modules/rn-splash-screen/ios/RCTSplashScreen
 
 * delete your project's LaunchScreen.xib
 * Dray SplashScreenResource to your project [if you want change image, replace splash.png]
@@ -35,11 +39,11 @@ RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
 ```
 
 
-### Installation (Android)
+#### Android
 ```gradle
 ...
 include ':react-native-splashscreen'
-project(':react-native-splashscreen').projectDir = new File(rootProject.projectDir, '../node_modules/@remobile/react-native-splashscreen/android')
+project(':react-native-splashscreen').projectDir = new File(rootProject.projectDir, '../node_modules/rn-splash-screen/android')
 ```
 
 * In `android/app/build.gradle`
@@ -56,67 +60,35 @@ dependencies {
 * register module (in MainActivity.java)
 
 ```java
-import com.remobile.splashscreen.*;  // <--- import
+import com.mehcode.reactnative.splashscreen.SplashScreen; // <--------
 
-public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
-  ......
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
+public class MainActivity /*...*/ {
+  /*...*/
 
-    mReactInstanceManager = ReactInstanceManager.builder()
-      .setApplication(getApplication())
-      .setBundleAssetName("index.android.bundle")
-      .setJSMainModuleName("index.android")
-      .addPackage(new MainReactPackage())
-      .addPackage(new RCTSplashScreenPackage(this))              // <------ add here
-      .setUseDeveloperSupport(BuildConfig.DEBUG)
-      .setInitialLifecycleState(LifecycleState.RESUMED)
-      .build();
-
-    mReactRootView.startReactApplication(mReactInstanceManager, "ExampleRN", null);
-
-    setContentView(mReactRootView);
+  protected List<ReactPackage> getPackages() {
+    return Arrays.<ReactPackage>asList(
+      new SplashScreenPackage(),                                 // <--------
+      new MainReactPackage(),
+    );
   }
 
-  ......
+  /*...*/
 }
 ```
 
-### Screencasts
-![gif](https://github.com/remobile/react-native-splashscreen/blob/master/screencasts/splash.gif)
-
 ## Usage
 
-### Example
+### Hide
+The splash screen must be hidden from JavaScript. This can be done as early
+as late as possible so as to give your application more time to "load".
+
 ```js
-'use strict';
-var React = require('react-native');
-var {
-    AppRegistry,
-    View,
-    Text,
-} = React;
-var SplashScreen = require('@remobile/react-native-splashscreen');
+import SplashScreen from "rn-splash-screen";
 
-var KitchenSink = React.createClass({
-    componentDidMount: function() {
-        SplashScreen.hide();
-    },
-    render() {
-        return(
-            <View>
-                <Text>
-                    fangyunjiang is a good developer!
-                </Text>
-            </View>
-        );
-    }
-});
-
-AppRegistry.registerComponent('KitchenSink', () => KitchenSink);
+// Hide the active splash screen
+SplashScreen.hide();
 ```
 
+## Credits
 
-### methods
-- hide() hide SplashScreen
+ - [@remobile](https://github.com/remobile)

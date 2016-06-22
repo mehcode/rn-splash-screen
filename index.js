@@ -1,14 +1,4 @@
-/*
-* (The MIT License)
-* Copyright (c) 2015-2016 YunJiang.Fang <42550564@qq.com>
-* @providesModule SplashScreen
-* @flow-weak
-*/
-'use strict';
-
-var React = require('react-native');
-var {
-    NativeModules,
-} = React;
-
-module.exports = NativeModules.SplashScreen;
+// Simple proxy to the native module so JS code doesn't have to deal with
+// the dirty module directly.
+import {NativeModules} from "react-native";
+export default NativeModules.SplashScreen;
