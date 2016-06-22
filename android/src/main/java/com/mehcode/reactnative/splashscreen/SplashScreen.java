@@ -11,6 +11,7 @@ import com.facebook.react.bridge.ReactMethod;
 
 class SplashScreen extends ReactContextBaseJavaModule {
     Activity mActivity;
+    Dialog mSplashDialog;
 
     public SplashScreen(ReactApplicationContext reactContext, Activity activity) {
         super(reactContext);
@@ -26,12 +27,21 @@ class SplashScreen extends ReactContextBaseJavaModule {
     }
 
     void show() {
+        if (mSplashDialog != null && mSplashDialog.isShowing()) {
+            // Splash screen is open
+            return;
+        }
+
         mActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                if (mSplashDialog == null) {
+                    mSplashDialog = new Dialog(mActivity, R.style.SplashTheme);
+                    mSplashDialog.setCancelable(false);
+                }
+
                 if (!mActivity.isFinishing()) {
-                    Intent intent = new Intent(mActivity, SplashActivity.class);
-                    mActivity.startActivity(intent);
+                    mSplashDialog.show();
                 }
             }
         });
@@ -42,11 +52,15 @@ class SplashScreen extends ReactContextBaseJavaModule {
      */
     @ReactMethod
     public void hide() {
+        if (mSplashDialog == null || !mSplashDialog.isShowing()) {
+            // Not showing splash screen
+            return;
+        }
+
         mActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent("splash-screen:hide");
-                LocalBroadcastManager.getInstance(mActivity).sendBroadcast(intent);
+                mSplashDialog.dismiss();
             }
         });
     }
