@@ -13,11 +13,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class SplashScreenPackage implements ReactPackage {
-    Activity mActivity;
-
-    public SplashScreenPackage(Activity activity) {
-        mActivity = activity;
-    }
+    private Activity mActivity;
 
     @Override
     public List<Class<? extends JavaScriptModule>> createJSModules() {
@@ -37,5 +33,9 @@ public class SplashScreenPackage implements ReactPackage {
         modules.add(new SplashScreen(reactContext, mActivity));
 
         return modules;
+    }
+
+    public void setActivity(final Activity activity) {
+        mActivity = activity;
     }
 }
