@@ -1,3 +1,5 @@
 rootProject.name = 'example'
 
 include ':app'
+include ':rn-splash-screen'
+project(':rn-splash-screen').projectDir = new File(rootProject.projectDir, '../node_modules/rn-splash-screen/android')
