@@ -1,8 +1,6 @@
 # React Native Splash Screen
 > A JavaScript-controlled splash-screen designed to be run directly after the native splash-screen.
 
-- [ ] Android
-
 ## Install
 
 1. `npm install --save rn-splash-screen`
