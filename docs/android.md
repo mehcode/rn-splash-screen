@@ -18,8 +18,8 @@
    the native splash screen (from your modified theme) in `onCreate`.
 
     ```java
-    import com.mehcode.reactnative.splashscreen.SplashScreen;
     // [...]
+    import com.mehcode.reactnative.splashscreen.SplashScreen;
     
     public class MainActivity extends ReactActivity {
       // [...]
