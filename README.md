@@ -14,7 +14,6 @@
 
 ## Usage
 
-### Hide
 The splash screen must be hidden from JavaScript. This can be done
 as late as possible so as to give your application more time to "load".
 
