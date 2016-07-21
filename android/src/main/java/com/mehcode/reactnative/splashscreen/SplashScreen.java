@@ -36,7 +36,7 @@ public class SplashScreen extends ReactContextBaseJavaModule {
             @Override
             public void run() {
                 if (mSplashDialog == null) {
-                    mSplashDialog = new Dialog(mActivity, R.style.SplashTheme);
+                    mSplashDialog = new Dialog(mActivity, R.style.RNSplashScreen_SplashTheme);
                     mSplashDialog.setCancelable(false);
                 }
 
