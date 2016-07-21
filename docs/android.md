@@ -2,14 +2,6 @@
 
 ## Configure
 
-The idiomatic method of doing a
-native android splash screen is to use a `SplashActivity` and configure it
-to immediately launch your `MainActivity`.
-
-Your `SplashActivity` should be treated as your launch activity and receive
-all intents that the `MainActivity` would otherwise (an integration with
-`branch.io` for instance).
-
 1. Add a `splash` drawable to your project. I recommend using 9-png _and_ adding a size for each screen density.
 
     http://stackoverflow.com/a/34726279
