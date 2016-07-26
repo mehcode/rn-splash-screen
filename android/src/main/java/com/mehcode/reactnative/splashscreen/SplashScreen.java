@@ -23,11 +23,9 @@ public class SplashScreen {
             @Override
             public void run() {
                 if (!activity.isFinishing()) {
-                    if (mSplashDialog == null) {
-                        mSplashDialog = new Dialog(activity, R.style.RNSplashScreen_SplashTheme);
-                        mSplashDialog.setCancelable(false);
-                    }
-
+                    mSplashDialog = new Dialog(activity, R.style.RNSplashScreen_SplashTheme);
+                    mSplashDialog.setCancelable(false);
+                    
                     if (!mSplashDialog.isShowing()) {
                         mSplashDialog.show();
                     }
