@@ -10,7 +10,7 @@
 ## Configure
 
  - [Android](./docs/android.md)
- - iOS (documentation coming soon)
+ - [iOS](./docs/ios.md)
 
 ## Usage
 
