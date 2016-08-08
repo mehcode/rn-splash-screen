@@ -10,12 +10,37 @@ static RCTRootView *rootView = nil;
 
 RCT_EXPORT_MODULE(SplashScreen)
 
++ (NSString *)splashImageNameForOrientation {
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    CGFloat screenHeight = screenRect.size.height;
+    CGSize viewSize = CGSizeMake(screenWidth, screenHeight);
+
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    
+    NSString* viewOrientation = @"Portrait";
+    if (UIDeviceOrientationIsLandscape(orientation)) {
+        viewSize = CGSizeMake(viewSize.height, viewSize.width);
+        viewOrientation = @"Landscape";
+    }
+    
+    NSArray* imagesDict = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"UILaunchImages"];
+
+    for (NSDictionary* dict in imagesDict) {
+        CGSize imageSize = CGSizeFromString(dict[@"UILaunchImageSize"]);
+        if (CGSizeEqualToSize(imageSize, viewSize) && [viewOrientation isEqualToString:dict[@"UILaunchImageOrientation"]])
+            return dict[@"UILaunchImageName"];
+    }
+    return nil;
+}
+
 + (void)show:(RCTRootView *)v {
     rootView = v;
     rootView.loadingViewFadeDelay = 0.1;
     rootView.loadingViewFadeDuration = 0.1;
     UIImageView *view = [[UIImageView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    view.image = [UIImage imageNamed:@"splash"];
+    NSString* launchFn = [RCTSplashScreen splashImageNameForOrientation];
+    view.image = [UIImage imageNamed:launchFn];
 
     [[NSNotificationCenter defaultCenter] removeObserver:rootView  name:RCTContentDidAppearNotification object:rootView];
 
