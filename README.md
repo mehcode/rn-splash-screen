@@ -1,4 +1,8 @@
 # React Native Splash Screen
+[![npm](https://img.shields.io/npm/v/rn-splash-screen.svg?maxAge=2592000)](https://www.npmjs.com/package/rn-splash-screen)
+[![npm](https://img.shields.io/npm/dm/rn-splash-screen.svg?maxAge=2592000)](https://www.npmjs.com/package/rn-splash-screen)
+[![npm](https://img.shields.io/npm/dt/rn-splash-screen.svg?maxAge=2592000?style=flat)](https://www.npmjs.com/package/rn-splash-screen)
+[![npm](https://img.shields.io/npm/l/rn-splash-screen.svg?maxAge=2592000)](https://github.com/mehcode/rn-splash-screen/blob/master/LICENSE)
 > A JavaScript-controlled splash-screen designed to be run directly after the native splash-screen.
 
 ## Install
