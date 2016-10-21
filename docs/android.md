@@ -6,7 +6,7 @@
 
     http://stackoverflow.com/a/34726279
 
-2. Adjust your `AppTheme` and add a `windowBackground` of the recently added drawable.
+2. In `android/app/src/main/res/values/styles.xml`: Adjust your `AppTheme` and add a `windowBackground` of the recently added drawable.
 
     ```xml
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -14,11 +14,16 @@
     </style>
     ```
 
-3. Show this (from rn-splash-screen) splash screen and hide
+3. In `android/app/src/main/java/com/__APPNAMES__/MainActivity.java`: Show this (from rn-splash-screen) splash screen and hide
    the native splash screen (from your modified theme) in `onCreate`.
 
     ```java
     // [...]
+    import android.graphics.Color;
+    import android.os.Bundle;
+
+    import com.facebook.react.ReactInstanceManager;
+    import com.facebook.react.bridge.ReactContext;
     import com.mehcode.reactnative.splashscreen.SplashScreen;
     
     public class MainActivity extends ReactActivity {
