@@ -12,7 +12,7 @@
 
   ```objectivec
   // [...]
-  #import "RCTSplashScreen.h"
+  #import <RCTSplashScreen/RCTSplashScreen.h>
   
   - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
  {
