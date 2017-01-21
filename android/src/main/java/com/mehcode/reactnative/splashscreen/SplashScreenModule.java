@@ -1,5 +1,6 @@
 package com.mehcode.reactnative.splashscreen;
 
+import com.facebook.react.ReactActivity;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
@@ -19,7 +20,7 @@ class SplashScreenModule extends ReactContextBaseJavaModule {
      */
     @ReactMethod
     public void show() {
-        SplashScreen.show(getCurrentActivity());
+        SplashScreen.show((ReactActivity)getCurrentActivity(), null);
     }
 
     /**

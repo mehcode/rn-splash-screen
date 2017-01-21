@@ -12,16 +12,9 @@ public class MainActivity extends ReactActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Show the js-controlled splash screen
-        SplashScreen.show(this);
-
-        // After react is initialized; set our background color (override splash screen theme)
-        getReactNativeHost().getReactInstanceManager().addReactInstanceEventListener(new ReactInstanceManager.ReactInstanceEventListener() {
-            @Override
-            public void onReactContextInitialized(ReactContext context) {
-                // Hide the native splash screen
-                getWindow().getDecorView().setBackgroundColor(Color.WHITE);
-            }
-        });
+        // NOTE: It needs the react instance manager so it can listen to the react
+        //       context creation event and hide the native splash
+        SplashScreen.show(this, getReactInstanceManager());
 
         super.onCreate(savedInstanceState);
     }
