@@ -14,7 +14,9 @@
     </style>
     ```
 
-3. In `android/app/src/main/java/com/__APPNAMES__/MainActivity.java`: Show this (from rn-splash-screen) splash screen and hide
+3. Move your `AppTheme` from your Application to your Activity ( see https://github.com/mehcode/rn-splash-screen/commit/3cdbb187c38ef8dcc129baef804aed70e2bce0e1 )
+
+4. In `android/app/src/main/java/com/__APPNAMES__/MainActivity.java`: Show this (from rn-splash-screen) splash screen and hide
    the native splash screen (from your modified theme) in `onCreate`.
 
     ```java
