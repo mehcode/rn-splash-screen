@@ -32,16 +32,7 @@
       @Override
       protected void onCreate(Bundle savedInstanceState) {
           // Show the js-controlled splash screen
-          SplashScreen.show(this);
-    
-          // After react is initialized; set our background color (override splash screen theme)
-          getReactNativeHost().getReactInstanceManager().addReactInstanceEventListener(new ReactInstanceManager.ReactInstanceEventListener() {
-              @Override
-              public void onReactContextInitialized(ReactContext context) {
-                  // Hide the native splash screen
-                  getWindow().getDecorView().setBackgroundColor(Color.WHITE);
-              }
-          });
+          SplashScreen.show(this, getReactInstanceManager());
     
           super.onCreate(savedInstanceState);
     
