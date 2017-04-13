@@ -6,7 +6,7 @@
 *.iml
 npm-debug.log
 node_modules
-/android/build
-/ios/**/*xcuserdata*
-/ios/**/*xcshareddata*
-
+android/build/
+ios/**/*xcuserdata*
+ios/**/*xcshareddata*
+example/
