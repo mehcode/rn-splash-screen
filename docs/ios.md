@@ -8,7 +8,7 @@
 
 3. In target settings, tap `Use Asset Catalog` for `Launch Images` under `App Icons and Launch Images` and have it use the newly created `LaunchImage`.
 
-4. Show this (from rn-splash-screen) splash screen directly after creation of the `rootView` in `didFinishLaunchingWithOptions`:
+4. Show this (from rn-splash-screen) splash screen directly after creation of the `rootView` in `didFinishLaunchingWithOptions` (found in `<project>/ios/<project>/AppDelegate.m`):
 
   ```objectivec
   // [...]
