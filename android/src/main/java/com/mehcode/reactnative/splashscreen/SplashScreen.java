@@ -18,6 +18,10 @@ public class SplashScreen {
      * Show the splash screen.
      */
     public static void show(final ReactActivity activity, final ReactInstanceManager instanceManager) {
+        SplashScreen.show(activity, instanceManager, Color.WHITE);
+    }
+
+    public static void show(final ReactActivity activity, final ReactInstanceManager instanceManager, final int backgroundColor) {
         if (activity == null) return;
 
         // Store weak-reference to showing activity (in case we try to hide too early)
@@ -43,14 +47,14 @@ public class SplashScreen {
                         // background state and we will not get the context created event
                         ReactContext ctx = instanceManager.getCurrentReactContext();
                         if (ctx != null) {
-                            activity.getWindow().getDecorView().setBackgroundColor(Color.WHITE);
+                            activity.getWindow().getDecorView().setBackgroundColor(backgroundColor);
                         } else {
                             // Else; wait until react is initialized before we release the native splash
                             instanceManager.addReactInstanceEventListener(new ReactInstanceManager.ReactInstanceEventListener() {
                                 @Override
                                 public void onReactContextInitialized(ReactContext context) {
                                     // Hide the native splash screen
-                                    activity.getWindow().getDecorView().setBackgroundColor(Color.WHITE);
+                                    activity.getWindow().getDecorView().setBackgroundColor(backgroundColor);
                                 }
                             });
                         }
