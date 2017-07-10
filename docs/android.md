@@ -44,3 +44,12 @@
       // [...]
     }
     ```
+
+5. (OPTIONAL) In `android/app/src/main/res/values/styles.xml`: Add `splashBackgroundColor` attribute with a color you want to see under keyboard while open/close animation is happening (defaults to white).
+
+  ```xml
+  <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+      <item name="android:windowBackground">@drawable/splash</item>
+      <item name="splashBackgroundColor">#ff0000</item>
+  </style>
+  ```
