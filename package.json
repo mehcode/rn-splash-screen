@@ -1,6 +1,6 @@
 {
   "name": "rn-splash-screen",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "A JavaScript-controlled splash-screen designed to be run directly after the native splash-screen.",
   "main": "index.js",
   "author": {
