@@ -2,6 +2,7 @@ package com.mehcode.reactnative.splashscreen;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.res.TypedArray;
 import android.graphics.Color;
 
 import com.facebook.react.ReactActivity;
@@ -18,10 +19,6 @@ public class SplashScreen {
      * Show the splash screen.
      */
     public static void show(final ReactActivity activity, final ReactInstanceManager instanceManager) {
-        SplashScreen.show(activity, instanceManager, Color.WHITE);
-    }
-
-    public static void show(final ReactActivity activity, final ReactInstanceManager instanceManager, final int backgroundColor) {
         if (activity == null) return;
 
         // Store weak-reference to showing activity (in case we try to hide too early)
@@ -38,6 +35,10 @@ public class SplashScreen {
                     if (!mSplashDialog.isShowing()) {
                         mSplashDialog.show();
                     }
+
+                    // Use color of "splashBackgroundColor" attribute in user theme, fallback to white if not set
+                    TypedArray styledAttributes = activity.getTheme().obtainStyledAttributes(R.styleable.RNSplashScreen_Styleable);
+                    final int backgroundColor = styledAttributes.getColor(R.styleable.RNSplashScreen_Styleable_splashBackgroundColor, Color.WHITE);
 
                     // If given an instance manager; ensure that we transition to the stage-2
                     // splash screen
