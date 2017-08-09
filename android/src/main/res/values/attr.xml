@@ -1,0 +1,5 @@
+<resources>
+  <declare-styleable name="RNSplashScreen_Styleable">
+    <attr name="splashBackgroundColor" format="color" />
+  </declare-styleable>
+</resources>
