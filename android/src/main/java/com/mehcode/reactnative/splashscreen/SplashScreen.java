@@ -36,10 +36,6 @@ public class SplashScreen {
                         mSplashDialog.show();
                     }
 
-                    // Use color of "splashBackgroundColor" attribute in user theme, fallback to white if not set
-                    TypedArray styledAttributes = activity.getTheme().obtainStyledAttributes(R.styleable.RNSplashScreen_Styleable);
-                    final int backgroundColor = styledAttributes.getColor(R.styleable.RNSplashScreen_Styleable_splashBackgroundColor, Color.WHITE);
-
                     // If given an instance manager; ensure that we transition to the stage-2
                     // splash screen
                     // TODO: If you think of a better way to do this; PR please
@@ -48,14 +44,14 @@ public class SplashScreen {
                         // background state and we will not get the context created event
                         ReactContext ctx = instanceManager.getCurrentReactContext();
                         if (ctx != null) {
-                            activity.getWindow().getDecorView().setBackgroundColor(backgroundColor);
+                            activity.getWindow().getDecorView().setBackgroundColor(Color.TRANSPARENT);
                         } else {
                             // Else; wait until react is initialized before we release the native splash
                             instanceManager.addReactInstanceEventListener(new ReactInstanceManager.ReactInstanceEventListener() {
                                 @Override
                                 public void onReactContextInitialized(ReactContext context) {
                                     // Hide the native splash screen
-                                    activity.getWindow().getDecorView().setBackgroundColor(backgroundColor);
+                                    activity.getWindow().getDecorView().setBackgroundColor(Color.TRANSPARENT);
                                 }
                             });
                         }
