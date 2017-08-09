@@ -22,7 +22,7 @@ public class SplashScreenPackage implements ReactPackage {
         return Collections.emptyList();
     }
 
-    @Override
+    // Deprecated RN 0.47
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
         return Collections.emptyList();
     }
