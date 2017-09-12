@@ -49,8 +49,14 @@ public class SplashScreen {
                             instanceManager.addReactInstanceEventListener(new ReactInstanceManager.ReactInstanceEventListener() {
                                 @Override
                                 public void onReactContextInitialized(ReactContext context) {
-                                    // Hide the native splash screen
-                                    activity.getWindow().getDecorView().setBackgroundColor(Color.WHITE);
+
+                                    activity.runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            // Hide the native splash screen
+                                            activity.getWindow().getDecorView().setBackgroundColor(Color.WHITE);
+                                        }
+                                    });
                                 }
                             });
                         }
